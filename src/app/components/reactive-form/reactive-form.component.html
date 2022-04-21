@@ -1,0 +1,68 @@
+<h3>Reactive Forms </h3>
+
+<div class="container-fluid">
+    <strong>Registration Form</strong>
+
+
+
+    <form [formGroup]="registrationForm">
+        <!--  -->
+        <div class="form-group">
+            <label>Username: </label>
+            <input
+                [class.is-invalid]="registrationForm.controls?.['userName']?.errors && registrationForm.controls?.['userName']?.touched"
+                id="user-name" formControlName="userName" type="text" class="form-control">
+                <span class="is-invalid" *ngIf="registrationForm.get('userName')?.errors?.['forbiddenName']?.value">admin is not a valid username</span>
+                <span class="is-invalid" *ngIf="registrationForm.get('userName')?.value.length<4 && registrationForm.controls?.['userName']?.touched">Username length must be at least 4 characters</span>
+            </div>
+
+        <div class="form-group">
+            <label>Password: </label>
+            <input formControlName="password" type="password" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Confirm Password: </label>
+            <input formControlName="confirmPassword" type="password" class="form-control">
+        </div>
+        <br>
+        <!--  Address FormGroup -->
+        <div formGroupName="address">
+            <div class="form-group">
+                <label>City: </label>
+                <input formControlName="city" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>State: </label>
+                <input formControlName="state" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Postal Code: </label>
+                <input formControlName="postalCode" type="text" class="form-control">
+            </div>
+        </div>
+
+
+
+        <button class="btn btn-primary" type="submit">Register</button>
+        <button (click)="loadApi()" class="btn btn-secondary" type="button">Load Api Data</button>
+
+    </form>
+    <br>
+    <div style="border:1px solid blueviolet; margin: .3rem; padding: .3rem;">
+        <div style="color:blueviolet">Form Values: </div>
+        <div>Username: {{registrationForm.value.userName | json}}</div>
+        <div>Password: {{registrationForm.value.password | json}}</div>
+        <div>Confirm Password: {{registrationForm.value.confirmPassword | json}}</div>
+        <div>Address: {{registrationForm.value.address | json}}</div>
+    </div>
+    <br>
+
+
+    <div>The form element here is known as a FormGroup and each input in the form is known as a Form Control</div>
+    <br>
+    <div>Nested Form Group : You can also use a FormGroup to cluster specific form controls such as with city, state,
+        and zipcode by surrounding the form-controls in a div with a specified name like formControlGroup="address".
+        Angular will treat the div tag as a form group and then maps the form controls to the form controls within the
+        address formgroup </div>
+
+</div>

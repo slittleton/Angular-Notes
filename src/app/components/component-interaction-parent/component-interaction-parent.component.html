@@ -1,0 +1,28 @@
+<hr>
+<strong>Component Interaction</strong>
+<div>Information can be passed from parent to child components or from child to parent components using decoractors</div>
+<br>
+<div>@Input() is the decorator that goes on the child component receiving data from the parent</div>
+<div>@Output() is the decorator that goes on the parent component receiving data from the child</div>
+<div>To send data from child to parent you must emit an even to the parent using EventEmitter</div>
+<div>you can also specify an alias for the variable name by putting it in the () of the decorator such as @Input("myVar")</div>
+<br>
+
+<div>Parent To Child</div>
+<app-component-interaction-child [parentData]="name" (childEvent)="fromChild=$event"></app-component-interaction-child>
+<br>
+<br>
+<div>Child to parent</div>
+<div>Data coming from child component: <span style="font-style:italic">{{fromChild}}</span></div>
+<div>Child event must be captures by parent component by adding (childEvent)="fromChild=$event" to the child-component's template element. in this case its added to the app-component-interaction-child element being displayed in the parent's template</div>
+
+
+
+
+
+
+
+
+
+
+

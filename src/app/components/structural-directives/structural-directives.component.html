@@ -1,0 +1,35 @@
+<hr>
+<strong>Structural Directives</strong>
+<div>Allow you to show or hide elements in the DOM based on certain conditions</div>
+<div>Examples: *ngIf, *ngSwitch, *ngFor,</div>
+<br>
+<strong>ng-Template</strong>
+<div>the ng-template tag is like a fragment in React, it can be used to add content withouth adding HTML to the DOM
+</div>
+
+<br>
+<strong>#ngIf</strong>
+<div><strong *ngIf="myBool; then thenBlock ;else elseBlock">*ngIf</strong></div>
+<ng-template #thenBlock>
+    the ngIf statement is currently set to show when <span style="color:blue">true</span>
+</ng-template>
+<ng-template #elseBlock style="color:orange">
+    the ngIf statement is currently set to show when <span style="color:orange">false</span>
+</ng-template>
+
+
+
+<br>
+<div><strong>[ngSwitch]</strong></div>
+<div [ngSwitch]="color">
+    <div *ngSwitchCase="'red'"><span style="color:red">Red is the current switch case</span></div>
+    <div *ngSwitchCase="'blue'"><span style="color:blue">Blue is the current switch case</span></div>
+    <div *ngSwitchCase="'green'"><span style="color:green">Green is the current switch case</span></div>
+</div>
+
+<br>
+<div><strong>*ngFor</strong></div>
+<div>List of sizes</div>
+<div *ngFor="let size of sizes index as i">
+    <div>{{i + 1 +". " + size}}</div>
+</div>

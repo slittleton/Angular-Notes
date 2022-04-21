@@ -1,0 +1,21 @@
+<hr>
+<strong>Event Binding</strong>
+<br>
+<div>use (click)="functionName()" to cause event such as a </div>
+<button (click)="onClick()">Click to say hello</button>
+<div>Greeting: <span>{{greeting}}</span></div>
+
+
+<br>
+<strong>Template Reference Variable</strong>
+<div>You can get a value from an input and pass it to a function in the template which then passes it to the class component</div>
+<input #myInput type="text" placeholder="your custom message here">
+<button (click)="showCustomMessage(myInput)">Show Custom message</button>
+<div>Custom Message: <span>{{customMessage}}</span></div>
+
+<br>
+<strong>Two Way Binding</strong>
+<div>Requires you to add the FormsModule module to your app.module.ts file using the  using the ngModel directive in the template</div>
+<div>the () for event binding go from the template to the class and the [] aka property binding go from the class to the template</div>
+<input [(ngModel)]="twoWayBindingVal" type="text">
+<div>two-way-binding val: <span>{{twoWayBindingVal}}</span></div>
